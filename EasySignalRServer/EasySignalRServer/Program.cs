@@ -1,8 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Microsoft.Owin.Hosting;
+using RLog;
+using System;
 
 namespace EasySignalRServer
 {
@@ -10,6 +8,26 @@ namespace EasySignalRServer
     {
         static void Main(string[] args)
         {
+            RLogger.Init();
+
+            var url = "http://localhost:2023";
+            RLogger.Debug($"signalr connection base url: " + url);
+
+            WebApp.Start(url);
+            RLogger.Debug($"Ram's easy SignalR Server is Run");
+
+            Run();
+        }
+
+        static void Run()
+        {
+            while (true)
+            {
+                string cmd = Console.ReadLine().ToLower();
+
+                if (cmd.Contains("exit") == true)
+                    break;
+            }
         }
     }
 }

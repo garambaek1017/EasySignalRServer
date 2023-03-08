@@ -4,15 +4,14 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{7D3C6D1F-CDE2-406E-A7F7-281C8E97C8F1}</ProjectGuid>
+    <ProjectGuid>{5B6946CE-ACF9-417D-9769-0B631606EF31}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>EasySignalRServer</RootNamespace>
-    <AssemblyName>EasySignalRServer</AssemblyName>
+    <RootNamespace>EasyTestClient.cs</RootNamespace>
+    <AssemblyName>EasyTestClient.cs</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
-    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -34,39 +33,15 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Microsoft.AspNet.SignalR.Core">
-      <HintPath>..\DLL\Microsoft.AspNet.SignalR.Core.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.Owin">
-      <HintPath>..\DLL\Microsoft.Owin.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.Owin.Cors">
-      <HintPath>..\DLL\Microsoft.Owin.Cors.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.Owin.Diagnostics">
-      <HintPath>..\DLL\Microsoft.Owin.Diagnostics.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.Owin.Host.HttpListener">
-      <HintPath>..\DLL\Microsoft.Owin.Host.HttpListener.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.Owin.Hosting">
-      <HintPath>..\DLL\Microsoft.Owin.Hosting.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.Owin.Security">
-      <HintPath>..\DLL\Microsoft.Owin.Security.dll</HintPath>
+    <Reference Include="Microsoft.AspNet.SignalR.Client">
+      <HintPath>..\DLL\Microsoft.AspNet.SignalR.Client.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\DLL\Newtonsoft.Json.dll</HintPath>
     </Reference>
-    <Reference Include="Owin">
-      <HintPath>..\DLL\Owin.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Web.Cors">
-      <HintPath>..\DLL\System.Web.Cors.dll</HintPath>
-    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -75,25 +50,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Network\ChatHub.cs" />
+    <Compile Include="Player\TestPlayer.cs" />
+    <Compile Include="Player\TestPlayer.Receive.cs" />
+    <Compile Include="Player\TestPlayer.Send.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <Compile Include="Network\PacketProcessor.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\..\RLoggerLib\RLoggerLib\RLog.csproj">
-      <Project>{D045BB52-12BA-45AF-AA69-14B7A6480AC0}</Project>
+      <Project>{d045bb52-12ba-45af-aa69-14b7a6480ac0}</Project>
       <Name>RLog</Name>
     </ProjectReference>
     <ProjectReference Include="..\Protocols\Protocols.csproj">
-      <Project>{f1cc2b38-c417-41ef-a776-ca9447b65cf2}</Project>
+      <Project>{F1CC2B38-C417-41EF-A776-CA9447B65CF2}</Project>
       <Name>Protocols</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
