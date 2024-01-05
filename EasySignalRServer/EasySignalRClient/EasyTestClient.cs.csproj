@@ -60,13 +60,13 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\RLoggerLib\RLoggerLib\RLog.csproj">
-      <Project>{d045bb52-12ba-45af-aa69-14b7a6480ac0}</Project>
-      <Name>RLog</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Protocols\Protocols.csproj">
       <Project>{F1CC2B38-C417-41EF-A776-CA9447B65CF2}</Project>
       <Name>Protocols</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\R.Log\RLog.csproj">
+      <Project>{dad32cc3-61fd-4fd3-b13b-9ae59a61d426}</Project>
+      <Name>RLog</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

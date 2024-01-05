@@ -5,11 +5,11 @@ VisualStudioVersion = 17.1.32319.34
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EasySignalRServer", "EasySignalRServer\EasySignalRServer.csproj", "{7D3C6D1F-CDE2-406E-A7F7-281C8E97C8F1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RLog", "..\..\RLoggerLib\RLoggerLib\RLog.csproj", "{D045BB52-12BA-45AF-AA69-14B7A6480AC0}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EasyTestClient.cs", "EasySignalRClient\EasyTestClient.cs.csproj", "{5B6946CE-ACF9-417D-9769-0B631606EF31}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Protocols", "Protocols\Protocols.csproj", "{F1CC2B38-C417-41EF-A776-CA9447B65CF2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RLog", "R.Log\RLog.csproj", "{DAD32CC3-61FD-4FD3-B13B-9AE59A61D426}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,10 +21,6 @@ Global
 		{7D3C6D1F-CDE2-406E-A7F7-281C8E97C8F1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7D3C6D1F-CDE2-406E-A7F7-281C8E97C8F1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7D3C6D1F-CDE2-406E-A7F7-281C8E97C8F1}.Release|Any CPU.Build.0 = Release|Any CPU
-		{D045BB52-12BA-45AF-AA69-14B7A6480AC0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D045BB52-12BA-45AF-AA69-14B7A6480AC0}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D045BB52-12BA-45AF-AA69-14B7A6480AC0}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D045BB52-12BA-45AF-AA69-14B7A6480AC0}.Release|Any CPU.Build.0 = Release|Any CPU
 		{5B6946CE-ACF9-417D-9769-0B631606EF31}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{5B6946CE-ACF9-417D-9769-0B631606EF31}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5B6946CE-ACF9-417D-9769-0B631606EF31}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -33,6 +29,10 @@ Global
 		{F1CC2B38-C417-41EF-A776-CA9447B65CF2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F1CC2B38-C417-41EF-A776-CA9447B65CF2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F1CC2B38-C417-41EF-A776-CA9447B65CF2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DAD32CC3-61FD-4FD3-B13B-9AE59A61D426}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DAD32CC3-61FD-4FD3-B13B-9AE59A61D426}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DAD32CC3-61FD-4FD3-B13B-9AE59A61D426}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DAD32CC3-61FD-4FD3-B13B-9AE59A61D426}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

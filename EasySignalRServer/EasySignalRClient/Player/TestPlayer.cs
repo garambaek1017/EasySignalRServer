@@ -27,7 +27,7 @@ namespace EasyTestClient.Player
 
         public void Connect()
         {
-            RLogger.Debug($"{ChatServerEndPoint}");
+            RLogger.Debug($"try to connect : {ChatServerEndPoint}");
 
             HubConnection = new HubConnection(ChatServerEndPoint);
 
@@ -56,6 +56,8 @@ namespace EasyTestClient.Player
             }
             );
         }
+
+        // 프록시를 등록해서 chathub에 연결 
         void RegisterProxy()
         {
             Proxy = HubConnection.CreateHubProxy("ChatHub");

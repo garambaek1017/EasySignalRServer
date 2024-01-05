@@ -85,13 +85,13 @@
     <Compile Include="Network\PacketProcessor.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\RLoggerLib\RLoggerLib\RLog.csproj">
-      <Project>{D045BB52-12BA-45AF-AA69-14B7A6480AC0}</Project>
-      <Name>RLog</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Protocols\Protocols.csproj">
       <Project>{f1cc2b38-c417-41ef-a776-ca9447b65cf2}</Project>
       <Name>Protocols</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\R.Log\RLog.csproj">
+      <Project>{dad32cc3-61fd-4fd3-b13b-9ae59a61d426}</Project>
+      <Name>RLog</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup />
