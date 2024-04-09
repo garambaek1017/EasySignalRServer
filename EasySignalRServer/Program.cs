@@ -13,8 +13,11 @@ namespace EasySignalRServer
             var url = "http://localhost:2023";
             RLogger.Debug($"signalr connection base url: " + url);
 
-            WebApp.Start(url);
-            RLogger.Debug($"Ram's easy SignalR Server is Run");
+            using (WebApp.Start<Startup>(url))
+            {
+                Console.WriteLine("Server running on {0}", url);
+                Console.ReadLine();
+            }
 
             Run();
         }

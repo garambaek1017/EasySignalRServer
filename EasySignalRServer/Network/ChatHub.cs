@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNet.SignalR;
 using Microsoft.AspNet.SignalR.Hubs;
+using Protocols.Packets;
 using RLog;
 using System;
 using System.Threading.Tasks;
@@ -18,6 +19,11 @@ namespace EasySignalRServer.Network
 
             // 접속시 채팅 그룹에 유저 추가함
             Groups.Add(Context.ConnectionId, ChatGroupName);
+
+            var noti = new NotifyPacket();
+            noti.NotiMessage = "Login one User";
+
+            NotifyToAllUser(noti);
 
             return base.OnConnected();
         }
