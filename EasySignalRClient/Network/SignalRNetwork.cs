@@ -8,10 +8,13 @@ namespace EasyTestClient
 {
     public class SignalRNetwork
     {
+
         #region Network
         public HubConnection HubConnection { get; set; }
         public IHubProxy Proxy { get; set; }
         #endregion
+
+        public bool IsConnection { get; set; } = false;
 
         public SignalRNetwork(string serverEndPoint)
         {
@@ -26,31 +29,36 @@ namespace EasyTestClient
 
         }
 
-        public void Connect()
+        public async Task<bool> Connect()
         {
             if(string.IsNullOrEmpty(HubConnection.Url) == true)
             {
-                RLogger.Error($"Chatting url is null, check your url");
+                Console.WriteLine($"Chatting url is null, check your url");
             }
             else
             {
-                HubConnection.Start().ContinueWith((task) =>
+                await HubConnection.Start().ContinueWith((task) =>
                 {
                     if (task.IsCompleted == true)
                     {
-                        RLogger.Debug($"> ConnectResult : {task.Status} : {DateTime.Now}");
+                        Console.WriteLine($"> ConnectResult : {task.Status} : {DateTime.Now}");
 
                         // 연결 성공 여부 판단 
                         if (task.Status == TaskStatus.RanToCompletion)
                         {
-                            RLogger.Debug($"> Connection is success");
+                            IsConnection = true;
+                            Console.WriteLine($"> Connection is success :" + IsConnection);
                         }
                         // 실패
                         else
-                            RLogger.Error($"> Connect Error : {task.Exception.GetBaseException().ToString()} : {DateTime.Now}");
+                        {
+                            Console.WriteLine($"> Connect Error : {task.Exception.GetBaseException().ToString()} : {DateTime.Now}");
+                        }   
                     }
                 });
             }
+
+            return IsConnection;
         }
 
         // 프록시를 등록해서 chathub에 연결 
@@ -59,7 +67,6 @@ namespace EasyTestClient
             Proxy = HubConnection.CreateHubProxy("ChatHub");
             
             Proxy.On<SendChatResult>(ChatHubMethodNames.SendChat, ChattingClient.Instance.ReceiveChat);
-
             Proxy.On<BroadcastPacket>(ChatHubMethodNames.BroadcastMessage, ChattingClient.Instance.ReceiveBroadCastMessage);
             Proxy.On<NotifyPacket>(ChatHubMethodNames.NotifyMessage, ChattingClient.Instance.ReceiveNotifyMessage);
         }

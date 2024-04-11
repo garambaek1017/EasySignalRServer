@@ -1,4 +1,6 @@
-﻿using RLog;
+﻿using EasyTestClient.ClientState;
+using System;
+using System.Collections.Generic;
 
 namespace EasyTestClient
 {
@@ -6,17 +8,8 @@ namespace EasyTestClient
     {
         static void Main(string[] args)
         {
-            // 로그 프로그램 init
-            RLogger.Init();
-
-            RLogger.Debug("[Start Test SignalR Chatting Client]");
-
-            ChattingClient.Instance.ShowMenu();
-
-            var signalRNetwork = new SignalRNetwork($"http://localhost:2023/");
-
-            ChattingClient.Instance.SetNetwork(signalRNetwork);
-
+            Console.WriteLine("Start Console Chatting Program..");
+            
             ChattingClient.Instance.Run();
         }
     }
