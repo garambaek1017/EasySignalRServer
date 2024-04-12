@@ -1,6 +1,4 @@
-﻿using EasyTestClient.ClientState;
-using System;
-using System.Collections.Generic;
+﻿using System;
 
 namespace EasyTestClient
 {
@@ -8,9 +6,15 @@ namespace EasyTestClient
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Start Console Chatting Program..");
-            
-            ChattingClient.Instance.Run();
+            try
+            {
+                // 채팅 프로그램 시작 
+                ChattingClient.Instance.Run();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
         }
     }
 }

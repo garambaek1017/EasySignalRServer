@@ -1,8 +1,8 @@
-﻿using System;
-using System.CodeDom;
-
-namespace EasyTestClient.ClientState
+﻿namespace EasyTestClient.ClientState
 {
+    /// <summary>
+    /// 상태를 가지는 클래스 
+    /// </summary>
     public class Context
     {
         private BaseState _state = null;
@@ -12,7 +12,8 @@ namespace EasyTestClient.ClientState
             SetState(state);
         }
 
-        public void SetState(BaseState state) {
+        public void SetState(BaseState state)
+        {
             _state = state;
         }
 
@@ -23,16 +24,19 @@ namespace EasyTestClient.ClientState
         {
             switch (_state)
             {
+                // 유저 정보 저장, 닉네임 저장 
                 case UserInfoState userInfoState:
                     userInfoState.Do();
                     break;
 
+                // 네트워크 셋팅 
                 case NetworkState networkSate:
                     networkSate.Do();
                     break;
-                
+
+                // 채팅 상태 
                 case ChattingState chattingState:
-                    chattingState.Do(); 
+                    chattingState.Do();
                     break;
 
                 case WaitState waitState:

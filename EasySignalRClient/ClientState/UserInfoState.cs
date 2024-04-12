@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Threading;
 
 namespace EasyTestClient.ClientState
 {
@@ -20,7 +19,7 @@ namespace EasyTestClient.ClientState
             ChattingClient.Instance.Nickname = nickname;
             Console.WriteLine("#### Nickname Setting is Done : " + ChattingClient.Instance.Nickname);
 
-            
+
             ChattingClient.Instance.Context.SetState(new NetworkState());
         }
     }

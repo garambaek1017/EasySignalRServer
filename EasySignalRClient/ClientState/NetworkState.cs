@@ -1,13 +1,13 @@
 ﻿using System;
-using System.Threading;
 
 namespace EasyTestClient.ClientState
 {
     public class NetworkState : BaseState
     {
-        public NetworkState() {
-            
-        }   
+        public NetworkState()
+        {
+
+        }
 
         public async override void Do()
         {
@@ -17,7 +17,7 @@ namespace EasyTestClient.ClientState
 
             var isConnection = await ChattingClient.Instance.SetNetworkAndConnection();
 
-            if(isConnection)
+            if (isConnection)
             {
                 ChattingClient.Instance.Context.SetState(new ChattingState());
                 //this._context.Do();

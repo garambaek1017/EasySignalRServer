@@ -1,8 +1,8 @@
 ﻿using Microsoft.AspNet.SignalR.Client;
-using RLog;
-using System.Threading.Tasks;
-using System;
 using Protocols.Packets;
+using RLog;
+using System;
+using System.Threading.Tasks;
 
 namespace EasyTestClient
 {
@@ -26,12 +26,11 @@ namespace EasyTestClient
             HubConnection.Reconnected += OnReConnect;
 
             RegisterProxy();
-
         }
 
         public async Task<bool> Connect()
         {
-            if(string.IsNullOrEmpty(HubConnection.Url) == true)
+            if (string.IsNullOrEmpty(HubConnection.Url) == true)
             {
                 Console.WriteLine($"Chatting url is null, check your url");
             }
@@ -41,19 +40,19 @@ namespace EasyTestClient
                 {
                     if (task.IsCompleted == true)
                     {
-                        Console.WriteLine($"> ConnectResult : {task.Status} : {DateTime.Now}");
+                        Console.WriteLine($">>> ConnectResult : {task.Status} : {DateTime.Now}");
 
                         // 연결 성공 여부 판단 
                         if (task.Status == TaskStatus.RanToCompletion)
                         {
                             IsConnection = true;
-                            Console.WriteLine($"> Connection is success :" + IsConnection);
+                            Console.WriteLine($">>> Connection is success :" + IsConnection);
                         }
                         // 실패
                         else
                         {
-                            Console.WriteLine($"> Connect Error : {task.Exception.GetBaseException().ToString()} : {DateTime.Now}");
-                        }   
+                            Console.WriteLine($">>> Connect Error : {task.Exception.GetBaseException().ToString()} : {DateTime.Now}");
+                        }
                     }
                 });
             }
@@ -65,7 +64,7 @@ namespace EasyTestClient
         void RegisterProxy()
         {
             Proxy = HubConnection.CreateHubProxy("ChatHub");
-            
+
             Proxy.On<SendChatResult>(ChatHubMethodNames.SendChat, ChattingClient.Instance.ReceiveChat);
             Proxy.On<BroadcastPacket>(ChatHubMethodNames.BroadcastMessage, ChattingClient.Instance.ReceiveBroadCastMessage);
             Proxy.On<NotifyPacket>(ChatHubMethodNames.NotifyMessage, ChattingClient.Instance.ReceiveNotifyMessage);
